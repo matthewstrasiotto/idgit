@@ -125,3 +125,20 @@ EOF
 
   return 0
 }
+
+
+
+function _idgit_complete() {
+    local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/idgit"
+
+    local IFS=$'\n'
+    local cur="${2}" && shift
+
+    local suggestions=( $(compgen -W "$(ls $config_dir | sed -n 's/(.*)\.alias/\1/p' 2> /dev/null)" -- "${cur}") )
+
+    COMPREPLY=( ${COMPREPLY[@]:-} ${suggestions[@]:-} )
+
+    return 0
+}
+
+complete -F _idgit_complete idgit
