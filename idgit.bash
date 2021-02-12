@@ -2,19 +2,26 @@
 
 function _idgit_check_globals {
   local global_files=( --system  --global  )
-  local check_names=( email name useConfigOnly )
+  local warn_if_set=( email name )
+
+  local useConfigOnly_set=""
 
   for scope in "${global_files[@]}"; do
 
-    for name in "${check_names}"; do
+    for name in "${warn_if_set}"; do
       if [[ ! -z "$(git config $scope --includes user.${name})" ]]; then
         echo "WARNING: idgit found $name in $scope - This may lead to your identity leaking across accounts. See https://github.com/matthewstrasiotto/idgit for details."
       fi
 
     done
+    [[ "$(git config $scope --includes user.useConfigOnly)" == "true" ]] && useConfigOnly_set="1"
 
   done
 
+  if [[ -z "$useConfigOnly_set" ]]; then
+    echo "WARNING: user.useConfigOnly not set. This may lead to your identity leaking across accounts."
+    echo "Consider setting: git config --global user.useConfigOnly true"
+  fi
 }
 
 function _idgit_check_remote_email_private {
