@@ -24,7 +24,7 @@ function _idgit_check_remote_email_private {
 
   # Use V as delim
   local url_pattern='sV(www\.)?([-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4})\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)V\2Vg'
-  local remote_host="$("$remote" | sed -n "$url_pattern")"
+  local remote_host="$("$remote" | sed -nE "$url_pattern")"
 
 
   if [[ $remote_host == "github.com" ]]; then
@@ -134,7 +134,7 @@ function _idgit_complete() {
     local IFS=$'\n'
     local cur="${2}" && shift
 
-    local suggestions=( $(compgen -W "$(ls $config_dir | sed -n 's/(.*)\.alias/\1/p' 2> /dev/null)" -- "${cur}") )
+    local suggestions=( $(compgen -W "$(ls $config_dir | sed -nE 's/(.*)\.alias/\1/p' 2> /dev/null)" -- "${cur}") )
 
     COMPREPLY=( ${COMPREPLY[@]:-} ${suggestions[@]:-} )
 
