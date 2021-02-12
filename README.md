@@ -2,6 +2,12 @@
 
 `idgit` (pronounced how a cowboy might say 'idiot') is a rolodex for your git config. 
 
+Install it with:
+
+```bash
+/bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
+```
+
 ## Aims
 
 `idgit` provides a simple, bash only mechanism for setting up alternative git identities for different accounts, and easily
@@ -37,7 +43,7 @@ of typing your __entire__ email (Maybe us millenials are as lazy as they say).
 
 ## Installation
 
-`idgit` can be installed in a `curl` oneliner like so:
+From your terminal:
 
 ```bash
 /bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
