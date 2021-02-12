@@ -148,4 +148,34 @@ function _idgit_complete() {
     return 0
 }
 
+
+function _idgit_install() {
+  echo "Create ~/.idgit.bash :"
+  
+  [[ ! -f ~/.idgit.bash ]] && curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/HEAD/idgit.bash > ~/.idgit.bash
+  
+  echo "Update $HOME/.ssh/config :"
+
+  local to_append='[[ -f ~/.idgit.bash ]] && . ~/.idgit.bash'
+  local destination_file="$HOME/.bashrc"
+
+  echo " - $to_append"
+  
+  if [[ ! -e "$destination_file" ]]; then
+    echo "\n" >> "$destination_file"
+  fi
+  local linenums="$(sed -n "\,^${to_append},=" "$destination_file")"
+
+  if [[ ! -z "$linenums" ]]; then
+    echo "   - Already exists: lines #$linenums"
+    return 0
+  fi
+  
+  echo "${to_append}" >> "$destination_file"
+}
+
+if [[ -z "$INSTALL_IDGIT" ]]; then
+  _idgit_install
+fi
+
 complete -F _idgit_complete idgit
