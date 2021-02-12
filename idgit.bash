@@ -24,7 +24,7 @@ function _idgit_check_remote_email_private {
 
   # Use V as delim
   local url_pattern='sV(www\.)?([-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4})\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)V\2Vg'
-  local remote_host="$("$remote" | sed -nE "$url_pattern")"
+  local remote_host="$(echo "$remote" | sed -nE "$url_pattern")"
 
 
   if [[ $remote_host == "github.com" ]]; then
