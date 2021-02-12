@@ -164,7 +164,7 @@ function _idgit_install() {
   if [[ ! -e "$destination_file" ]]; then
     echo "\n" >> "$destination_file"
   fi
-  local linenums="$(sed -n "\,^${to_append},=" "$destination_file")"
+  local linenums="$(sed -n "\,${to_append},=" "$destination_file")"
 
   if [[ ! -z "$linenums" ]]; then
     echo "   - Already exists: lines #$linenums"
