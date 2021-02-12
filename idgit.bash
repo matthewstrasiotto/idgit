@@ -109,7 +109,7 @@ EOF
       [[ -z "$git_name" ]] && git_name="$line" && continue
       [[ -z "$git_email" ]] && git_email="$line" && continue
       
-      [[ -z "$git_user" ]]  && git_user="line" && continue
+      [[ -z "$git_user" ]]  && git_user="$line" && continue
       # if both vars are set, stop reading
       break
     fi
