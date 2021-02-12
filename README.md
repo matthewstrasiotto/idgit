@@ -40,20 +40,16 @@ of typing your __entire__ email (Maybe us millenials are as lazy as they say).
 `idgit` can be installed in a `curl` oneliner like so:
 
 ```bash
-# todo - implement install script. For now you need to download the script directly, and source it manually.
-# /bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/HEAD/idgit.bash)"
+/bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
 ```
 
 If you prefer to read scripts you run, feel free to download and inspect the linked script.
 
 I will probably make a `brew`/`linuxbrew` formula if anyone else uses this.
 
-(TODO: Implement) 
-
 - `idgit` installs to `~/.idgit.bash`. 
-- It asks your permission if it can patch your `.bashrc` with a `source` to the script. 
 - It patches in `[[ -f ~/.idgit.bash ]] && source ~/.idgit.bash` only if that hasn't already been added.
-- It asks if you want it to warn you about insecure settings.
+- TODO: It asks if you want it to warn you about insecure settings.
 
 ## Stuff it helps with
 
