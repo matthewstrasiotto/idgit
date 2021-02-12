@@ -172,6 +172,10 @@ function _idgit_install() {
   fi
   
   echo "${to_append}" >> "$destination_file"
+  
+  local config_dir="${XDG_CONFIG_HOME:-$HOME/.config}/idgit"
+  echo "Creating directory: $config_dir"
+  [[ ! -d "$config_dir" ]] && mkdir -p "$config_dir"
 }
 
 if [[ -z "$INSTALL_IDGIT" ]]; then
