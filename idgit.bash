@@ -154,7 +154,7 @@ function _idgit_install() {
   
   [[ ! -f ~/.idgit.bash ]] && curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/HEAD/idgit.bash > ~/.idgit.bash
   
-  echo "Update $HOME/.ssh/config :"
+  echo "Update $destination_file :"
 
   local to_append='[[ -f ~/.idgit.bash ]] && . ~/.idgit.bash'
   local destination_file="$HOME/.bashrc"
