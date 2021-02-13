@@ -178,7 +178,7 @@ function _idgit_install() {
   [[ ! -d "$config_dir" ]] && mkdir -p "$config_dir"
 }
 
-if [[ -z "$INSTALL_IDGIT" ]]; then
+if [[ ! -z "$INSTALL_IDGIT" ]]; then
   _idgit_install
 fi
 
