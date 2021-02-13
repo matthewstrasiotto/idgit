@@ -152,7 +152,7 @@ function _idgit_complete() {
 function _idgit_install() {
   echo "Create ~/.idgit.bash :"
   
-  [[ ! -f ~/.idgit.bash ]] && curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/HEAD/idgit.bash > ~/.idgit.bash
+  [[ ! -L ~/.idgit.bash ]] && curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/HEAD/idgit.bash > ~/.idgit.bash
   
   echo "Update $destination_file :"
 
