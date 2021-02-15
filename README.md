@@ -5,7 +5,7 @@
 Install it with:
 
 ```bash
-/bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
+/bin/bash -c "export INSTALL_IDGIT=true; $(curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
 ```
 
 ## Aims
@@ -46,7 +46,7 @@ of typing your __entire__ email (Maybe us millenials are as lazy as they say).
 From your terminal:
 
 ```bash
-/bin/bash -c "$(export INSTALL_IDGIT=true; curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
+/bin/bash -c "export INSTALL_IDGIT=true; $(curl -fsSL https://raw.githubusercontent.com/matthewstrasiotto/idgit/main/idgit.bash)"
 ```
 
 If you prefer to read scripts you run, feel free to download and inspect the linked script.
